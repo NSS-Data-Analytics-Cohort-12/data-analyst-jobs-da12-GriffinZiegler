@@ -30,6 +30,10 @@ GROUP BY location;
 
 -- 4.	How many postings in Tennessee have a star rating above 4?
 
+SELECT count(location) AS TN4STARS
+FROM data_analyst_jobs
+WHERE star_rating > 4 AND location IN ('TN');
+
 -- 5.	How many postings in the dataset have a review count between 500 and 1000?
 
 -- 6.	Show the average star rating for companies in each state. The output should show the state as `state` and the average rating for the state as `avg_rating`. Which state shows the highest average rating?
