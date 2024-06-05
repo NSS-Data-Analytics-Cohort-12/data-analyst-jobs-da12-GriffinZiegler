@@ -7,11 +7,17 @@
 -- 1.	How many rows are in the data_analyst_jobs table?
 
 SELECT count(*)
-FROM data_analyst_jobs
+FROM data_analyst_jobs;
 
 -- 1793
 
 -- 2.	Write a query to look at just the first 10 rows. What company is associated with the job posting on the 10th row?
+
+SELECT *
+FROM data_analyst_jobs
+LIMIT 10;
+
+-- ExxonMobil
 
 -- 3.	How many postings are in Tennessee? How many are there in either Tennessee or Kentucky?
 
