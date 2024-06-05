@@ -76,6 +76,8 @@ FROM data_analyst_jobs
 GROUP BY company, review_count
 HAVING review_count > 5000;
 
+-- 45
+
 -- 10.	Add the code to order the query in #9 from highest to lowest average star rating. Which company with more than 5000 reviews across all locations in the dataset has the highest star rating? What is that rating?
 
 SELECT company, avg(star_rating), review_count
@@ -96,6 +98,12 @@ WHERE title LIKE ('%Analyst%');
 -- 754
 
 -- 12.	How many different job titles do not contain either the word ‘Analyst’ or the word ‘Analytics’? What word do these positions have in common?
+
+SELECT DISTINCT title
+FROM data_analyst_jobs
+WHERE title NOT LIKE '%analyst%' AND title NOT LIKE '%analytics%';
+
+--
 
 -- **BONUS:**
 -- You want to understand which jobs requiring SQL are hard to fill. Find the number of jobs by industry (domain) that require SQL and have been posted longer than 3 weeks. 
