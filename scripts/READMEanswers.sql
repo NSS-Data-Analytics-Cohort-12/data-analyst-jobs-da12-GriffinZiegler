@@ -110,3 +110,21 @@ WHERE title NOT LIKE '%analyst%' AND title NOT LIKE '%analytics%';
 --  - Disregard any postings where the domain is NULL. 
 --  - Order your results so that the domain with the greatest number of `hard to fill` jobs is at the top. 
 --   - Which three industries are in the top 4 on this list? How many jobs have been listed for more than 3 weeks for each of the top 4?
+
+SELECT domain AS industry, count(title) AS numofjobs, days_since_posting
+FROM data_analyst_jobs
+WHERE domain IS NOT NULL --Disregard postings where domain is NULL
+	AND skill LIKE '%SQL%' --Require SQL
+	AND days_since_posting > 21 --Posted longer than 3 weeks
+	GROUP BY industry, days_since_posting
+ORDER BY numofjobs DESC -- order result so domain with greatest # of "hard to fill jobs" is at top
+LIMIT 4; -- Top 4
+
+-- These results are of # of jobs listed per industry that have been vacant for 30 days
+-- Bank & Financial Services, 51 Jobs
+-- Internet and Software, 49 Jobs
+-- Health Care, 44 Jobs
+-- Consulting and Business Services, 44 Jobs
+
+
+
